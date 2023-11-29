@@ -37,6 +37,13 @@ https://www.elecrow.com/esp32-s3-core-board-esp32-devkit-module-with-ips-display
 
 ### Requirements
 * install libs
+https://github.com/Bodmer/TFT_eSPI   
+Arduino JSON  
+https://arduinojson.org/?utm_source=meta&utm_medium=library.properties
+PNGdec   
+https://github.com/bitbank2/PNGdec
+
+
 * add SSID.h to with connection parameters for your WIFI router
 
 SSID.h
