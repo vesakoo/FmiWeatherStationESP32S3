@@ -54,3 +54,7 @@ SSID.h
 #define AUTH      WIFLY_AUTH_WPA2_PSK
 ```
 
+###Tools
+Tools folder contains a Python script to create symbols.h -file containing png-images in hex array format.
+Run script in same folder where your images are locted to create this file.
+
