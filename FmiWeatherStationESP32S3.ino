@@ -104,9 +104,9 @@ void setup() {
     wifiMulti.addAP(SECRET_SSID, SECRET_PASS);
     tft.setCursor(0, 0, 4);
     //tft.setTextColor(TFT_WHITE,TFT_BLACK);  tft.setTextSize(1);
-     tft.setTextColor(TFT_YELLOW,TFT_BLACK);
-    tft.setTextFont(5);
-    tft.println("Hello World!");
+    //tft.setTextColor(TFT_YELLOW,TFT_BLACK);
+    //tft.setTextFont(5);
+    //tft.println("Hello World!");
   // The background colour will be read during the character rendering
   
 
@@ -144,8 +144,10 @@ void loop() {
 
                 DeserializationError error = deserializeJson(doc, payload);
                 tft.fillScreen(TFT_BLACK);
+              
                 tft.setCursor(0, 0, 4);
                 if (error) {
+                  tft.setTextFont(2);
                   tft.print("deserializeJson() failed: ");
                   tft.println(error.c_str());
                   return;
@@ -162,6 +164,7 @@ void loop() {
                     int wps = forecast_item["wind"]; 
                     int wDir = forecast_item["windDir"];
                     int symbol = forecast_item["symbol"];
+                    tft.setTextColor(TFT_YELLOW,TFT_BLACK);
                     tft.setTextFont(6);
                     tft.printf("%02d %3d ",hrs,temp );
                     tft.setTextFont(4);
@@ -172,21 +175,7 @@ void loop() {
                     int x=tft.getCursorX();
                     int y = tft.getCursorY();
                     if(swap ){
-                        //int x=tft.getCursorX();
-                        //int y = tft.getCursorY();
-                        //tft.drawLine(x, y, x+20, y+20, TFT_CYAN);
-                        //tft.drawCircleHelper()
-                        tft.drawSmoothCircle(x+24, y+24, 22, TFT_SILVER, DARKER_GREY);
-                        // Draw cecond hand
-                        float xp = 0.0, yp = 0.0;
-                        float xa = 0.0, ya = 0.0;
-                        //float xz = 0.0, yz = 0.0;
-                        getCoord(x+24, y+24, &xa, &ya, 6, 1.0f*wDir);
-                        tft.drawWedgeLine(x+24, y+24, xa, ya, 0.5, 4.5, TFT_RED);
-                        //getCoord(x+24, y+24, &xz, &yz, 20, 1.0f*wDir);
-                        getCoord(x+24, y+24, &xp, &yp, 19, 1.0f*wDir);
-                        tft.drawWedgeLine(xa, ya, xp, yp,2.5, 2.5, TFT_RED);
-
+                      drawWindRose(wDir,x,y);
                     }else{
                       xpos =x;
                       ypos =y;
@@ -210,15 +199,33 @@ void loop() {
     delay(5000);
 }
 
+void drawWindRose(int wDir, int x, int y){
+  tft.drawSmoothCircle(x+24, y+24, 22, TFT_SILVER, DARKER_GREY);
+  // Draw cecond hand
+  float xp = 0.0, yp = 0.0;
+  float xa = 0.0, ya = 0.0;
+  getCoord(x+24, y+24, &xa, &ya, 6, 1.0f * wDir);
+  tft.drawWedgeLine(x+24, y+24, xa, ya, 0.5, 4.5, TFT_RED);
+  getCoord(x+24, y+24, &xp, &yp, 19, 1.0f * wDir);
+  tft.drawWedgeLine(xa, ya, xp, yp,2.5, 2.5, TFT_RED);
+}
+
 void drawSymbol(int symbol) {
   int symbol_index = getSymbol[symbol];
-  int16_t rc = png.openFLASH((uint8_t *)fmisymbols[symbol_index], fmisizes[symbol_index], pngDraw);
-  if (rc == PNG_SUCCESS) {
-    tft.startWrite();
-    rc = png.decode(NULL, 0);
-    tft.endWrite();
+  if(symbol_index > -1){
+    int16_t rc = png.openFLASH((uint8_t *)fmisymbols[symbol_index], fmisizes[symbol_index], pngDraw);
+    if (rc == PNG_SUCCESS) {
+      tft.startWrite();
+      rc = png.decode(NULL, 0);
+      tft.endWrite();
+    } 
     // png.close(); // not needed for memory->memory decode
-  }
+  } else {
+      tft.setTextFont(4);
+      tft.setTextColor(TFT_RED);
+      tft.print(" n/a");
+      tft.setTextFont(6);
+    } 
 }
 
 

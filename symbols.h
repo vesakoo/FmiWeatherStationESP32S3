@@ -92,26 +92,53 @@ static const unsigned char symbol_9[] PROGMEM = { 0x89 , 0x50 , 0x4E , 0x47 , 0x
 
 PROGMEM const unsigned char* const fmisymbols[90] =
 { 
-symbol_1, symbol_101, symbol_102, symbol_104, symbol_106, symbol_107, symbol_109, symbol_11, 
-symbol_111, symbol_114, symbol_117, symbol_121, symbol_124, symbol_127, symbol_131, symbol_132, 
-symbol_133, symbol_134, symbol_135, symbol_136, symbol_137, symbol_138, symbol_139, symbol_14, 
-symbol_141, symbol_142, symbol_143, symbol_144, symbol_145, symbol_146, symbol_147, symbol_148, 
-symbol_149, symbol_151, symbol_152, symbol_153, symbol_154, symbol_155, symbol_156, symbol_157, 
-symbol_158, symbol_159, symbol_161, symbol_164, symbol_167, symbol_17, symbol_171, symbol_174, 
-symbol_177, symbol_2, symbol_21, symbol_24, symbol_27, symbol_31, symbol_32, symbol_33, 
-symbol_34, symbol_35, symbol_36, symbol_37, symbol_38, symbol_39, symbol_4, symbol_41, 
-symbol_42, symbol_43, symbol_44, symbol_45, symbol_46, symbol_47, symbol_48, symbol_49, 
-symbol_51, symbol_52, symbol_53, symbol_54, symbol_55, symbol_56, symbol_57, symbol_58, 
-symbol_59, symbol_6, symbol_61, symbol_64, symbol_67, symbol_7, symbol_71, symbol_74, 
-symbol_77, symbol_9 
+  symbol_1, symbol_101, symbol_102, symbol_104, symbol_106, symbol_107, symbol_109, symbol_11, symbol_111, symbol_114, 
+  symbol_117, symbol_121, symbol_124, symbol_127, symbol_131, symbol_132, symbol_133, symbol_134, symbol_135, symbol_136, 
+  symbol_137, symbol_138, symbol_139, symbol_14, symbol_141, symbol_142, symbol_143, symbol_144, symbol_145, symbol_146, 
+  symbol_147, symbol_148, symbol_149, symbol_151, symbol_152, symbol_153, symbol_154, symbol_155, symbol_156, symbol_157, 
+  symbol_158, symbol_159, symbol_161, symbol_164, symbol_167, symbol_17, symbol_171, symbol_174, symbol_177, symbol_2, 
+  symbol_21, symbol_24, symbol_27, symbol_31, symbol_32, symbol_33, symbol_34, symbol_35, symbol_36, symbol_37, 
+  symbol_38, symbol_39, symbol_4, symbol_41, symbol_42, symbol_43, symbol_44, symbol_45, symbol_46, symbol_47, 
+  symbol_48, symbol_49, symbol_51, symbol_52, symbol_53, symbol_54, symbol_55, symbol_56, symbol_57, symbol_58, 
+  symbol_59, symbol_6, symbol_61, symbol_64, symbol_67, symbol_7, symbol_71, symbol_74, symbol_77, symbol_9, 
+ 
 };
 
 PROGMEM const long  fmisizes[90] =
 { 
-sizeof(symbol_1), sizeof(symbol_101), sizeof(symbol_102), sizeof(symbol_104), sizeof(symbol_106), sizeof(symbol_107), sizeof(symbol_109), sizeof(symbol_11), sizeof(symbol_111), sizeof(symbol_114), sizeof(symbol_117), sizeof(symbol_121), sizeof(symbol_124), sizeof(symbol_127), sizeof(symbol_131), sizeof(symbol_132), sizeof(symbol_133), sizeof(symbol_134), sizeof(symbol_135), sizeof(symbol_136), sizeof(symbol_137), sizeof(symbol_138), sizeof(symbol_139), sizeof(symbol_14), sizeof(symbol_141), sizeof(symbol_142), sizeof(symbol_143), sizeof(symbol_144), sizeof(symbol_145), sizeof(symbol_146), sizeof(symbol_147), sizeof(symbol_148), sizeof(symbol_149), sizeof(symbol_151), sizeof(symbol_152), sizeof(symbol_153), sizeof(symbol_154), sizeof(symbol_155), sizeof(symbol_156), sizeof(symbol_157), sizeof(symbol_158), sizeof(symbol_159), sizeof(symbol_161), sizeof(symbol_164), sizeof(symbol_167), sizeof(symbol_17), sizeof(symbol_171), sizeof(symbol_174), sizeof(symbol_177), sizeof(symbol_2), sizeof(symbol_21), sizeof(symbol_24), sizeof(symbol_27), sizeof(symbol_31), sizeof(symbol_32), sizeof(symbol_33), sizeof(symbol_34), sizeof(symbol_35), sizeof(symbol_36), sizeof(symbol_37), sizeof(symbol_38), sizeof(symbol_39), sizeof(symbol_4), sizeof(symbol_41), sizeof(symbol_42), sizeof(symbol_43), sizeof(symbol_44), sizeof(symbol_45), sizeof(symbol_46), sizeof(symbol_47), sizeof(symbol_48), sizeof(symbol_49), sizeof(symbol_51), sizeof(symbol_52), sizeof(symbol_53), sizeof(symbol_54), sizeof(symbol_55), sizeof(symbol_56), sizeof(symbol_57), sizeof(symbol_58), sizeof(symbol_59), sizeof(symbol_6), sizeof(symbol_61), sizeof(symbol_64), sizeof(symbol_67), sizeof(symbol_7), sizeof(symbol_71), sizeof(symbol_74), sizeof(symbol_77), sizeof(symbol_9) 
+  sizeof(symbol_1), sizeof(symbol_101), sizeof(symbol_102), sizeof(symbol_104), sizeof(symbol_106), sizeof(symbol_107), sizeof(symbol_109), sizeof(symbol_11), sizeof(symbol_111), sizeof(symbol_114), 
+  sizeof(symbol_117), sizeof(symbol_121), sizeof(symbol_124), sizeof(symbol_127), sizeof(symbol_131), sizeof(symbol_132), sizeof(symbol_133), sizeof(symbol_134), sizeof(symbol_135), sizeof(symbol_136), 
+  sizeof(symbol_137), sizeof(symbol_138), sizeof(symbol_139), sizeof(symbol_14), sizeof(symbol_141), sizeof(symbol_142), sizeof(symbol_143), sizeof(symbol_144), sizeof(symbol_145), sizeof(symbol_146), 
+  sizeof(symbol_147), sizeof(symbol_148), sizeof(symbol_149), sizeof(symbol_151), sizeof(symbol_152), sizeof(symbol_153), sizeof(symbol_154), sizeof(symbol_155), sizeof(symbol_156), sizeof(symbol_157), 
+  sizeof(symbol_158), sizeof(symbol_159), sizeof(symbol_161), sizeof(symbol_164), sizeof(symbol_167), sizeof(symbol_17), sizeof(symbol_171), sizeof(symbol_174), sizeof(symbol_177), sizeof(symbol_2), 
+  sizeof(symbol_21), sizeof(symbol_24), sizeof(symbol_27), sizeof(symbol_31), sizeof(symbol_32), sizeof(symbol_33), sizeof(symbol_34), sizeof(symbol_35), sizeof(symbol_36), sizeof(symbol_37), 
+  sizeof(symbol_38), sizeof(symbol_39), sizeof(symbol_4), sizeof(symbol_41), sizeof(symbol_42), sizeof(symbol_43), sizeof(symbol_44), sizeof(symbol_45), sizeof(symbol_46), sizeof(symbol_47), 
+  sizeof(symbol_48), sizeof(symbol_49), sizeof(symbol_51), sizeof(symbol_52), sizeof(symbol_53), sizeof(symbol_54), sizeof(symbol_55), sizeof(symbol_56), sizeof(symbol_57), sizeof(symbol_58), 
+  sizeof(symbol_59), sizeof(symbol_6), sizeof(symbol_61), sizeof(symbol_64), sizeof(symbol_67), sizeof(symbol_7), sizeof(symbol_71), sizeof(symbol_74), sizeof(symbol_77), sizeof(symbol_9), 
+ 
 };
 
 PROGMEM const long  getSymbol[201] =
 { 
-0,0,49,0,62,0,81,85,0,89,0,7,0,0,23,0,0,45,0,0,0,50,0,0,51,0,0,52,0,0,0,53,54,55,56,57,58,59,60,61,0,63,64,65,66,67,68,69,70,71,0,72,73,74,75,76,77,78,79,80,0,82,0,0,83,0,0,84,0,0,0,86,0,0,87,0,0,88,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,0,3,0,4,5,0,6,0,8,0,0,9,0,0,10,0,0,0,11,0,0,12,0,0,13,0,0,0,14,15,16,17,18,19,20,21,22,0,24,25,26,27,28,29,30,31,32,0,33,34,35,36,37,38,39,40,41,0,42,0,0,43,0,0,44,0,0,0,46,0,0,47,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 
+  -1, 0, 49, -1, 62, -1, 81, 85, -1, 89, 
+  -1, 7, -1, -1, 23, -1, -1, 45, -1, -1, 
+  -1, 50, -1, -1, 51, -1, -1, 52, -1, -1, 
+  -1, 53, 54, 55, 56, 57, 58, 59, 60, 61, 
+  -1, 63, 64, 65, 66, 67, 68, 69, 70, 71, 
+  -1, 72, 73, 74, 75, 76, 77, 78, 79, 80, 
+  -1, 82, -1, -1, 83, -1, -1, 84, -1, -1, 
+  -1, 86, -1, -1, 87, -1, -1, 88, -1, -1, 
+  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
+  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
+  -1, 1, 2, -1, 3, -1, 4, 5, -1, 6, 
+  -1, 8, -1, -1, 9, -1, -1, 10, -1, -1, 
+  -1, 11, -1, -1, 12, -1, -1, 13, -1, -1, 
+  -1, 14, 15, 16, 17, 18, 19, 20, 21, 22, 
+  -1, 24, 25, 26, 27, 28, 29, 30, 31, 32, 
+  -1, 33, 34, 35, 36, 37, 38, 39, 40, 41, 
+  -1, 42, -1, -1, 43, -1, -1, 44, -1, -1, 
+  -1, 46, -1, -1, 47, -1, -1, 48, -1, -1, 
+  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
+  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
+  -1 
 };
