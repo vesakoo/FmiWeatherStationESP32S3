@@ -1,5 +1,7 @@
 import os
 #import re
+from PIL import Image
+from enum import Enum
 
 def png_to_hex_byte_array(png_file_path):
     """
@@ -21,7 +23,29 @@ def png_to_hex_byte_array(png_file_path):
     # Check if the PNG file exists
     if not os.path.exists(png_file_path):
         raise FileNotFoundError("The specified PNG file does not exist.")
-
+#####
+#    swap = True
+#    png = Image.open(png_file_path)
+#    width, height = png.size
+#    max_line_width = min(width, 64)
+#    image = png.getdata()
+#    image_content = ""
+#    i =0
+#    print (png_file_path)
+#    for pixel in enumerate(image):
+#        ind_len = len(pixel)
+#        rgb =0
+#        r = (pixel[0] >> 3) & 0x1F
+#        g = (pixel[1] >> 2) & 0x3F
+#        b = (pixel[2] >> 3) & 0x1F
+#        rgb = r << 11 | g << 5 | b
+#        print(rgb)
+#        if swap:
+#            rgb = ((rgb & 0xFF) << 8) | ((rgb & 0xFF00) >> 8)
+#
+#    if image_content.endswith("\n    "):
+#        image_content = image_content[:-5]
+######
     # Read the PNG file as binary data
     with open(png_file_path, "rb") as file:
         png_data = file.read()
@@ -35,7 +59,7 @@ def png_to_hex_byte_array(png_file_path):
 
     # Save the byte array as a .C file
     with open(c_file_path, "a") as file:
-        file.write(f"\nstatic const unsigned char symbol_{array_name}[] PROGMEM = {{ {hex_byte_array} }};")
+        file.write(f"\nstatic const unsigned char symbol_{array_name}[] PROGMEM = {{ {image_content} }};")
         #file.write("static const unsigned char symbol_{ array_name } [] PROGMEM = {{ {hex_byte_array} }};")
         #file.write("\n");
         
@@ -68,8 +92,9 @@ for  file in file_list:
         sym_size_array = sym_size_array + f"sizeof(symbol_{str(os.path.splitext(file)[0])}), "
         count = count +1
         tot_count = tot_count +1
-        if count == 8:
-            sym_arrays = sym_arrays + "\n"
+        if count == 10:
+            sym_arrays = sym_arrays + "\n  "
+            sym_size_array = sym_size_array + "\n  " 
             count =0
 
 sym_arrays = sym_arrays[:len(sym_arrays)-2]
@@ -78,9 +103,9 @@ sym_size_array = sym_size_array[:len(sym_size_array)-2]
 c_pointer_path = "./symbols.h"
 symbol_map_index_str = ",".join(map(str,symbol_map_index))
 with open(c_pointer_path, "a") as file:
-    file.write(f"\n\nPROGMEM const unsigned char* const fmisymbols[90] =\n{{ \n{sym_arrays} \n}};")
-    file.write(f"\n\nPROGMEM const long  fmisizes[90] =\n{{ \n{sym_size_array} \n}};")
-    file.write(f"\n\nPROGMEM const long  getSymbol[201] =\n{{ \n{symbol_map_index_str} \n}};")
+    file.write(f"\n\nPROGMEM const unsigned char* const fmisymbols[90] =\n  {{ \n{sym_arrays} \n}};")
+    file.write(f"\n\nPROGMEM const long  fmisizes[90] =\n  {{ \n{sym_size_array} \n}};")
+    file.write(f"\n\nPROGMEM const long  getSymbol[201] =\n  {{ \n{symbol_map_index_str} \n}};")
 
 
 

@@ -156,7 +156,8 @@ void loop() {
                 for (JsonObject forecast_item : doc["forecast"].as<JsonArray>()) {
                   //if(++i<10){    
                   int hrs = forecast_item["hours"]; 
-                  if(hrs==8 ||hrs==12 ||hrs==16||hrs==20||hrs==1){
+                  if(hrs==8 ||hrs==12 ||hrs==16||hrs==20||hrs==1 || i==0){
+                    i=1;
                     int temp = forecast_item["temp"]; 
                     int wps = forecast_item["wind"]; 
                     int wDir = forecast_item["windDir"];
@@ -243,6 +244,7 @@ void getCoord(int16_t x, int16_t y, float *xp, float *yp, int16_t r, float a)
 // Callback function to draw pixels to the display
 void pngDraw(PNGDRAW *pDraw) {
   uint16_t lineBuffer[MAX_IMAGE_WIDTH];
-  png.getLineAsRGB565(pDraw, lineBuffer, PNG_RGB565_BIG_ENDIAN, 0xffffffff);
+  
+  png.getLineAsRGB565(pDraw, lineBuffer, PNG_RGB565_LITTLE_ENDIAN, 0xffffffff);
   tft.pushImage(xpos, ypos + pDraw->y, pDraw->iWidth, 1, lineBuffer);
 }
