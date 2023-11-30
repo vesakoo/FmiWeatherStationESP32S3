@@ -20,6 +20,11 @@ Forecast format:
 ```
 Where hour is 01:00:00 given on your local time.
 
+[alt text](./images/display_weath.jpg)
+[alt text](./images/display_wind.jpg)
+
+
+
 
 ### Web backend
 Example backend solution:  https://github.com/vesakoo/fmiForecastEspoo  
