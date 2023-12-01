@@ -41,17 +41,16 @@ https://www.elecrow.com/esp32-s3-core-board-esp32-devkit-module-with-ips-display
 
 
 ### Requirements
-* install libs
+* install libs   
 https://github.com/Bodmer/TFT_eSPI   
-Arduino JSON  
-https://arduinojson.org/?utm_source=meta&utm_medium=library.properties
+Arduino JSON   
+https://arduinojson.org/?utm_source=meta&utm_medium=library.properties   
 PNGdec   
-https://github.com/bitbank2/PNGdec
+https://github.com/bitbank2/PNGdec   
 
 
 * add SSID.h to with connection parameters for your WIFI router
-
-SSID.h
+SSID.h   
 ```
 #define SECRET_SSID "your-secret"
 #define SECRET_PASS "your-pass"
@@ -63,7 +62,8 @@ SSID.h
 
 Tools folder contains a Python script to create symbols.h -file containing png-images in hex array format.
 * Run script in same folder where your images are locted to create this file.
-* Images on folder need to use numeric naming: 1.png,2.png,...   
+* Images on folder need to use numeric naming: 1.png,2.png,...
+  (This numbers are stored in allocation table telling where is a pointer to a symbol given in index) 
 * By default script handles images from 0-200.png
 Example:
 ```
